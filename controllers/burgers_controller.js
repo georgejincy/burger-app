@@ -29,15 +29,15 @@ router.put("/burgers/update/:id", function(req, res) {
   });
 });
 
-/*router.post("/", function(req, res) {
+router.post("/", function(req, res) {
   burger.create([
-    "name", "sleepy"
+    "burger_name"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.burgername
   ], function() {
     res.redirect("/");
   });
-});*/
+});
 
 
 
