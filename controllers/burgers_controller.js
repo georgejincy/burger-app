@@ -12,9 +12,21 @@ router.get("/", function(req, res) {
       burgers: data
     };
     console.log(hbsObject);
-   /* res.render("index", hbsObject);*/
+   res.render("index", hbsObject);
   });
-  res.render('index');
+
+});
+
+router.put("/burgers/update/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
+
+  burger.update({
+    devoured: req.body.devoured
+  }, condition, function() {
+    res.redirect("/");
+  });
 });
 
 /*router.post("/", function(req, res) {
@@ -25,21 +37,11 @@ router.get("/", function(req, res) {
   ], function() {
     res.redirect("/");
   });
-});
+});*/
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
 
-  cat.update({
-    sleepy: req.body.sleepy
-  }, condition, function() {
-    res.redirect("/");
-  });
-});
-
-router.delete("/:id", function(req, res) {
+/*router.delete("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   cat.delete(condition, function() {
