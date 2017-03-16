@@ -29,12 +29,11 @@ router.put("/burgers/update/:id", function(req, res) {
   });
 });
 
-router.post("/", function(req, res) {
-  burger.create([
-    "burger_name"
-  ], [
-    req.body.burgername
-  ], function() {
+router.post("/burgers/create", function(req, res) {
+  console.log(req.body.burgername);
+  burger.create(["burger_name"]
+  , [req.body.burgername]
+  , function() {
     res.redirect("/");
   });
 });
