@@ -15,3 +15,13 @@
 		{{/unless}}
 	{{/each}}
 </ul>
+
+<h1> Burgers devoured! </h1>
+
+<ul>
+	{{#each burgers}}
+		{{#if this.devoured}}
+			<li>{{this.burger_name}}</li>
+		{{/if}}
+	{{/each}}
+</ul>
